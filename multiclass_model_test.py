@@ -1,12 +1,11 @@
-from tensorflow.keras.datasets import mnist
 from tensorflow import keras
-from tensorflow.keras import layers
-import tensorflow as tf
-
+from keras.datasets import mnist
+from keras import layers
 
 from multiclass_model import fit_mnist_model, evaluate_mnist_model
 from multiclass_model import get_mnist_data
 from multiclass_model import define_dense_model_single_layer, define_dense_model_with_hidden_layer
+
 
 def test_define_dense_model_single_layer():
     model = define_dense_model_single_layer(43, activation_f='sigmoid', output_length=1)
@@ -45,7 +44,8 @@ def test_fit_and_predict_mnist_with_hidden_layers():
     loss, accuracy = evaluate_mnist_model(x_test, y_test, model)
     print("test", loss, accuracy)
     assert accuracy > 0.9, " accuracy should be greater than 0.9"
-   
+
+
 if __name__ == "__main__":
     test_fit_and_predict_mnist_ten_neurons()
     test_fit_and_predict_mnist_with_hidden_layers()
